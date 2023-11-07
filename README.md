@@ -34,7 +34,7 @@ ___
 
 `apt install sudo`: installs a package that configures basic rules for allowing unpriviliged users to run commands as root or another user/group
 
-##### Now you need to set a user as sudo
+<b>Now you need to set a user as sudo</b>
 
 `usermod -aG sudo username`: set the user given to the sudo group
 
