@@ -95,6 +95,8 @@ you'll need to allow ↴
 
 now if you input again the command to check the status of UFW you'll your rules added
 
+___
+
 ### Connect your VM to your physical machine through ssh
 
 first go to your Virtual Box select the current VM and go to settings->network->change the `Attached to` from `NAT` to `bridge adpater`
