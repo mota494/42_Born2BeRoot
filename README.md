@@ -108,7 +108,7 @@ after that you'll need to change some settings in your virtual machine `/etc/net
 
 once you're in the file you'll need to add and edit some stuff
 
-`allow-hotplug eth0` ⇒ `auto enp0s3`
+`allow-hotplug enp0s3` ⇒ `auto enp0s3`
 
 `iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`
 
