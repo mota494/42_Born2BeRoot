@@ -6,6 +6,7 @@ ___
 
 ![Static Badge](https://img.shields.io/badge/Score-%3F%2F100-green?style=for-the-badge&logo=42&labelColor=%23183A61&color=%23ffffff)
 ![Static Badge](https://img.shields.io/badge/Debian-green?style=for-the-badge&logo=Debian&labelColor=%23A81D33&color=ffffff)
+<!--![Static Badge](https://img.shields.io/badge/Rocky-Green?style=for-the-badge&logo=Rocky%20Linux&logoColor=%23ffffff&labelColor=%2310B981&color=%23ffffff)-->
 ![Static Badge](https://img.shields.io/badge/Virtual%20Box-green?style=for-the-badge&logo=VirtualBox&labelColor=%23183A61&color=%23ffffff)
 
 ### OS
