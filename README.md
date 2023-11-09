@@ -100,7 +100,7 @@ ___
 
 ### Connect your VM to your physical machine through ssh
 
-first go to your Virtual Box select the current VM and go to settings->network->change the `Attached to` from `NAT` to `bridge adpater`
+first go to your Virtual Box select the current VM and go to settings ⇒ network ⇒ change the `Attached to` from `NAT` to `bridge adpater`
 
 after that you'll need to change some settings in your virtual machine `/etc/network/interfaces`
 
@@ -128,3 +128,38 @@ and after a while you should have access to your virtual machine through your ph
 ___
 
 ### Setup and configure a password policy
+
+```
+pwquality is a PAM module that is used to perform password quality checks.
+PAM are various libraries that allow multiple authentication mechanisms.
+```
+
+`sudo apt-get install libpam-pwquality`: to install the password quality check library
+
+`sudo vim /etc/pam.d/common-password`: opens up the config gile for the password quality check
+
+on that file you'll need to edit the line that has the `pam_pwquality.so`, after you find that write right next to it this
+
+`retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+
+```
+retry: number of retries
+dcredit: the maximum credit for having digits in the new password. 
+ucredit: the maximum credit for having uppercase characters in the new password.
+maxrepeat: the maximum number of allowed same consecutive characters in the new password.
+reject_username: doesn't allow the user to input his username in the password
+difok: number of characters in the new password that must not be present in new passwords
+enforce_for_root: the module will return error on failed check even if the user changing the password is roo
+```
+
+after this you can go ahead and save the documment
+
+`sudo vim /etc/login.defs`: opens up the config file for the shadow password suite
+
+<b>in this file you'll need to edit a couple of lines</b>
+
+`PASS_MAX_DAYS 99999` ⇒ `PASS_MAX_DAYS 30`: changes the expire date of a password
+
+`PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum ammount of time untill the user can change a password again
+
+now save the file and leave vim and type `sudo reboot` to apply the changes
