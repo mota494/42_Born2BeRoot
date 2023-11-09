@@ -149,7 +149,7 @@ ucredit: the maximum credit for having uppercase characters in the new password.
 maxrepeat: the maximum number of allowed same consecutive characters in the new password.
 reject_username: doesn't allow the user to input his username in the password
 difok: number of characters in the new password that must not be present in new passwords
-enforce_for_root: the module will return error on failed check even if the user changing the password is roo
+enforce_for_root: the module will return error on failed check even if the user changing the password is root
 ```
 
 after this you can go ahead and save the documment
