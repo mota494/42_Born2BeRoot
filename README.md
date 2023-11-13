@@ -59,6 +59,7 @@ ___
 ### How to create a group
 
 `sudo groupadd group_name`: Create a group with the group name given 
+
 `getent group`: To check the groups
 
 ___
@@ -66,14 +67,18 @@ ___
 ### How to edit hostname
 
 `sudo vim /etc/hostname`: opens the file with the hostname, you can edit this to change the hostname
+
 `sudo vim /etc/hosts`: opens the file that maps the IP addresses to the hosts, you can edit this to match the name on the `/etc/hostname`
 ___
 
 ### How to create a user and add it to a group
 
 `vim /etc/passwd`: opens the file where you can check the existing users [if you're not a sudo it's read only]
+
 `sudo adduser user_name`: creates a new user 
+
 `sudo usermod -aG groupname username`: to add the user given to the group given
+
 `groups`: check to which groups the current user belongs to
 
 if the user doesn't appear in the group that you added him when you run `groups` just restart the machine
