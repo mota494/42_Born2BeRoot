@@ -56,6 +56,11 @@ ___
 
 ___
 
+### How to create a group
+
+`sudo groupadd group_name` ⇒
+___
+
 ### Install and configure SSH
 
 ```
