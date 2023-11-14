@@ -138,7 +138,7 @@ once you're in the file you'll need to add and edit some stuff
 
 `allow-hotplug enp0s3` ⇒ `auto enp0s3`
 
-`iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`
+`iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`*/10 * * * * /usr/local/bin/monitoring.sh
 
 ```bash
 address your_ip
@@ -191,3 +191,92 @@ after this you can go ahead and save the documment
 `PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum ammount of time untill the user can change a password again
 
 now save the file and leave vim and type `sudo reboot` to apply the changes
+
+### Create a sudo log file
+
+`cd /var/log`: sends you to the folder where the logs of the system are kept
+
+`sudo mkdir sudo`: creates a folder named sudo where we will keep the folder of the sudo logs
+
+`cd sudo && touch sudo.log`: sends you to the folder we just created and creates a file caled sudo.log
+
+after that you will need to edit your sudoers file 
+
+### More sudo configurations
+
+`sudo visudo`: to open the sudoers config files
+
+here you will need to add these lines bellow the others `Defaults`
+
+```
+Defaults        logfile="/var/log/sudo/sudo.log" //sets the log file to the one that we created
+Defaults        badpass_message="Error, wrong password" //sets the password message when a sudo fails it
+Defaults        passwd_tries=3 //sets the number of retries that the sudo has after inputing the wrong password
+Defaults        log_input, log_output //adds to the log files inputs and outputs of files
+Defaults        requiretty //turns on a security check
+```
+
+### Crontab configuration
+
+```
+Crontab is a program for UNIX systems that allows a specific set of commands to be ran in a given ammount of time
+```
+
+`sudo apt-get install -y net-tools`: installs the package where crontab is included
+
+`cd /usr/local/bin/`: opens the default installation location when a user builds and installs an executable application independently
+
+`sudo touch monitoring.sh`: creates the file where we will write our script
+
+`sudo chmod 777 monitoring.sh`: grants executable permissions to every user to the file that we just created
+
+after that you can go ahead and copy this code to the file 
+
+```bash
+#!/bin/bash
+arc=$(uname -a)
+pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) 
+vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
+fram=$(free -m | awk '$1 == "Mem:" {print $2}')
+uram=$(free -m | awk '$1 == "Mem:" {print $3}')
+pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
+fdisk=$(df -BG | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')
+udisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')
+pdisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')
+cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')
+lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
+lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
+ctcp=$(ss -neopt state established | wc -l)
+ulog=$(users | wc -w)
+ip=$(hostname -I)
+mac=$(ip link show | grep "ether" | awk '{print $2}')
+cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
+wall "	#Architecture: $arc
+	#CPU physical: $pcpu
+	#vCPU: $vcpu
+	#Memory Usage: $uram/${fram}MB ($pram%)
+	#Disk Usage: $udisk/${fdisk}Gb ($pdisk%)
+	#CPU load: $cpul
+	#Last boot: $lb
+	#LVM use: $lvmu
+	#Connections TCP: $ctcp ESTABLISHED
+	#User log: $ulog
+	#Network: IP $ip ($mac)
+	#Sudo: $cmds cmd"
+```
+
+after saving your script you need to open your sudoers config file with `sudo visudo` and add this line
+
+`mloureir        ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh`: this will allow monitoring.sh to be ran when our session starts
+
+after this you'll need to reboot your VM and after that you'll need to run
+
+`sudo /usr/local/bin/monitoring.sh`: this will execute the script we created as a sudo
+
+`sudo crontab -u root -e`: this will open the crontab config file
+
+on the end of that file write this
+
+`*/10 * * * * /usr/local/bin/monitoring.sh`: this means that our script will run in 10 minutes intervals
+
+___
