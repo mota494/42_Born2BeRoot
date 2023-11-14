@@ -138,7 +138,7 @@ once you're in the file you'll need to add and edit some stuff
 
 `allow-hotplug enp0s3` ⇒ `auto enp0s3`
 
-`iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`*/10 * * * * /usr/local/bin/monitoring.sh
+`iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`
 
 ```bash
 address your_ip
