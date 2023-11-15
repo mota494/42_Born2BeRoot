@@ -265,6 +265,15 @@ wall "	#Architecture: $arc
 	#Sudo: $cmds cmd"
 ```
 
+```bash
+upt=$(uptime -s | awk '{print $2}' | cut -d ":" -f2)
+uptt=$(($upt % 10))
+uptts=$(($uptt * 60))
+upts=$(uptime -s | awk '{print $2}' | cut -d ":" -f3)
+waitime=$(($uptts + $upts))
+sleep $waitime
+```
+
 after saving your script you need to open your sudoers config file with `sudo visudo` and add this line
 
 `mloureir        ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh`: this will allow monitoring.sh to be ran when our session starts
