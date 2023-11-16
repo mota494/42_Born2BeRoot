@@ -168,12 +168,13 @@ PAM are various libraries that allow multiple authentication mechanisms.
 
 on that file you'll need to edit the line that has the `pam_pwquality.so`, after you find that write right next to it this
 
-`retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+`retry=3 minlen=10 ucredit=-1 dcredit=-1 lcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
 
 ```
 retry: number of retries
 dcredit: the maximum credit for having digits in the new password. 
 ucredit: the maximum credit for having uppercase characters in the new password.
+lcredit: the maximum credit for having lowercase characters in the new password.
 maxrepeat: the maximum number of allowed same consecutive characters in the new password.
 reject_username: doesn't allow the user to input his username in the password
 difok: number of characters in the new password that must not be present in new passwords
