@@ -4,7 +4,7 @@
 
 ___
 
-![Static Badge](https://img.shields.io/badge/Score-%3F%2F100-green?style=for-the-badge&logo=42&labelColor=%23183A61&color=%23ffffff)
+![Static Badge](https://img.shields.io/badge/Score-%3100%2F100-green?style=for-the-badge&logo=42&labelColor=%23183A61&color=%23ffffff)
 ![Static Badge](https://img.shields.io/badge/Debian-green?style=for-the-badge&logo=Debian&labelColor=%23A81D33&color=ffffff)
 ![Static Badge](https://img.shields.io/badge/Virtual%20Box-green?style=for-the-badge&logo=VirtualBox&labelColor=%23183A61&color=%23ffffff)
 
@@ -233,6 +233,11 @@ after that you can go ahead and copy this code to the file
 
 ```bash
 #!/bin/bash
+upt=$(uptime -s | awk '{print $2}' | cut -d ":" -f2)
+uptt=$(($upt % 10))
+uptts=$(($uptt * 60))
+upts=$(uptime -s | awk '{print $2}' | cut -d ":" -f3)
+waitime=$(($uptts + $upts))
 arc=$(uname -a)
 pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) 
 vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
@@ -250,6 +255,7 @@ ulog=$(users | wc -w)
 ip=$(hostname -I)
 mac=$(ip link show | grep "ether" | awk '{print $2}')
 cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
+sleep $waitime
 wall "	#Architecture: $arc
 	#CPU physical: $pcpu
 	#vCPU: $vcpu
@@ -264,18 +270,9 @@ wall "	#Architecture: $arc
 	#Sudo: $cmds cmd"
 ```
 
-```bash
-upt=$(uptime -s | awk '{print $2}' | cut -d ":" -f2)
-uptt=$(($upt % 10))
-uptts=$(($uptt * 60))
-upts=$(uptime -s | awk '{print $2}' | cut -d ":" -f3)
-waitime=$(($uptts + $upts))
-sleep $waitime
-```
-
 after saving your script you need to open your sudoers config file with `sudo visudo` and add this line
 
-`mloureir        ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh`: this will allow monitoring.sh to be ran when our session starts
+`your_username        ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh`: this will allow monitoring.sh to be ran when our session starts
 
 after this you'll need to reboot your VM and after that you'll need to run
 
