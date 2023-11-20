@@ -118,8 +118,6 @@ through simple commands and thanks to that minimizes the effort of managing a fi
 
 you'll need to allow ↴
 
-`sudo ufw allow ssh`: allow the ssh service
-
 `sudo ufw allow 4242`: opens up the 4242 port
 
 now if you input again the command to check the status of UFW you'll your rules added
