@@ -147,6 +147,8 @@ dns 10.11.254.254
 
 after this you can open a terminal in your physical machine and type
 
+you can view your ip address with `hostname -I`
+
 `ssh VMusername@VM_ip_address -p 4242`
 
 and after a while you should have access to your virtual machine through your physical machine terminal
