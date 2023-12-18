@@ -191,6 +191,20 @@ after this you can go ahead and save the documment
 
 now save the file and leave vim and type `sudo reboot` to apply the changes
 
+### Update main user password policy
+
+```
+All the users that we create after this steps will have this rules implemented but the user that we created at the beggining
+will not have this policies estabilished so you need to run a couple of commands to update that
+```
+
+`sudo chage -l user`: to check the password policy for the user given
+
+`sudo chage -M user 30`: to set the expiricy date for 30 days
+
+`sudo chage -m user 2`: to set the minimum ammount of time untill the user can change a password again
+
+
 ### Create a sudo log file
 
 `cd /var/log`: sends you to the folder where the logs of the system are kept
