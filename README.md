@@ -202,9 +202,9 @@ will not have this policies estabilished so you need to run a couple of commands
 
 `sudo chage -l user`: to check the password policy for the user given
 
-`sudo chage -M user 30`: to set the expiricy date for 30 days
+`sudo chage -M 30 user`: to set the expiricy date for 30 days
 
-`sudo chage -m user 2`: to set the minimum ammount of time untill the user can change a password again
+`sudo chage -m 2 user`: to set the minimum ammount of time untill the user can change a password again
 
 
 ### Create a sudo log file
