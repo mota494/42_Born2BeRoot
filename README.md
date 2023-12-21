@@ -122,6 +122,12 @@ you'll need to allow ↴
 
 now if you input again the command to check the status of UFW you'll your rules added
 
+###### Remove a UFW port
+
+`sudo ufw status numbered`: to check what ports are opened and their index number
+
+`sudo ufw delete port_index_number`: to delete the port of the index number received
+
 ___
 
 ### Connect your VM to your physical machine through ssh
