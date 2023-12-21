@@ -122,7 +122,7 @@ you'll need to allow ↴
 
 now if you input again the command to check the status of UFW you'll your rules added
 
-###### Remove a UFW port
+##### Remove an UFW port
 
 `sudo ufw status numbered`: to check what ports are opened and their index number
 
