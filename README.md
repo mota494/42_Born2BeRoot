@@ -126,6 +126,17 @@ ___
 
 ### Connect your VM to your physical machine through ssh
 
+```
+						NAT VS Bridged Adapter
+
+NAT makes your VM works as guest machine in the network, assigning it the same IP address as your physical machine,
+thanks to that your VM is seen as the same device as your machine.
+
+Bridged Adapter the VM uses the same physical adaptares as your machine basically conecting to the network as a phisycal
+machine by doing that hte VM needs to be assigned an IP address making it possible to connect your physical
+machine and VM through network services like SSH
+```
+
 first go to your Virtual Box select the current VM and go to settings ⇒ network ⇒ change the `Attached to` from `NAT` to `bridge adpater`
 
 after that you'll need to change some settings in your virtual machine `/etc/network/interfaces`
