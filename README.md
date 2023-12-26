@@ -48,6 +48,8 @@ as root. It can also be used to run commands as another users in the system
 
 now lastly go to the end of the file at the #User Privilege section add `username  ALL=(ALL) ALL`
 
+after all this go ahead and reboot your machine with `reboot`
+
 ___
 
 ### Additional installs (optional)
