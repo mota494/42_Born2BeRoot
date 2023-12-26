@@ -112,7 +112,7 @@ through simple commands and thanks to that minimizes the effort of managing a fi
 
 `sudo apt-get install ufw`: installs the UFW package
 
-`sufo ufw enable`: enables the UFW
+`sudo ufw enable`: enables the UFW
 
 `sudo ufw status numbered`: check if the UFW is active or not
 
