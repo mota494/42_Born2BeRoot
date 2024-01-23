@@ -15,11 +15,11 @@ In this project you're allowed to choose between 2 OS, debian or rocky.
 ```
 Debian:
 Open source project oriented for daily usage and more user friendly
-        since it provides great stabily as an operating system for workstations and personal computers
+        since it provides great stability as an operating system for workstations and personal computers
 
 Rocky:
 Open source project oriented for entreprise usage and is often called an
-      "open source version of red hat" and it has been in development since Red Hat discontinued CentOS
+      "open source version of Red Hat" and it has been in development since Red Hat discontinued CentOS
 ```
 ___
 
@@ -29,7 +29,7 @@ ___
 
 ```
 sudo (Superuser do) is a program used in UNIX systems that allows users to run commands
-as root. It can also be used to run commands as another users in the system
+as root. It can also be used to run commands as other users in the system
 ```
 
 `su -`: change your login to a root user
@@ -126,7 +126,7 @@ now if you input again the command to check the status of UFW you'll your rules 
 
 ##### Remove an UFW port
 
-`sudo ufw status numbered`: to check what ports are opened and their index number
+`sudo ufw status numbered`: to check what ports are open and their index number
 
 `sudo ufw delete port_index_number`: to delete the port of the index number received
 
@@ -140,8 +140,8 @@ ___
 NAT makes your VM works as guest machine in the network, assigning it the same IP address as your physical machine,
 thanks to that your VM is seen as the same device as your machine.
 
-Bridged Adapter the VM uses the same physical adaptares as your machine basically conecting to the network as a phisycal
-machine by doing that hte VM needs to be assigned an IP address making it possible to connect your physical
+Bridged Adapter the VM uses the same physical adaptars as your machine basically connecting to the network as a physical
+machine by doing that the VM needs to be assigned an IP address making it possible to connect your physical
 machine and VM through network services like SSH
 ```
 
@@ -183,7 +183,7 @@ PAM are various libraries that allow multiple authentication mechanisms.
 
 `sudo apt-get install libpam-pwquality`: to install the password quality check library
 
-`sudo vim /etc/pam.d/common-password`: opens up the config gile for the password quality check
+`sudo vim /etc/pam.d/common-password`: opens up the config file for the password quality check
 
 on that file you'll need to edit the line that has the `pam_pwquality.so`, after you find that write right next to it this
 
@@ -208,7 +208,7 @@ after this you can go ahead and save the documment
 
 `PASS_MAX_DAYS 99999` ⇒ `PASS_MAX_DAYS 30`: changes the expire date of a password
 
-`PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum ammount of time untill the user can change a password again
+`PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum ammount of time until the user can change a password again
 
 now save the file and leave vim and type `sudo reboot` to apply the changes
 
@@ -253,7 +253,7 @@ Defaults        requiretty //turns on a security check
 ### Crontab configuration
 
 ```
-Crontab is a program for UNIX systems that allows a specific set of commands to be ran in a given ammount of time
+Crontab is a program for UNIX systems that allows a specific set of commands to be ran in a given amount of time
 ```
 
 `sudo apt-get install -y net-tools`: installs the package where crontab is included
