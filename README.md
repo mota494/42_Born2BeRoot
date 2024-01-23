@@ -140,7 +140,7 @@ ___
 NAT makes your VM works as guest machine in the network, assigning it the same IP address as your physical machine,
 thanks to that your VM is seen as the same device as your machine.
 
-Bridged Adapter the VM uses the same physical adaptars as your machine basically connecting to the network as a physical
+Bridged Adapter the VM uses the same physical adapters as your machine basically connecting to the network as a physical
 machine by doing that the VM needs to be assigned an IP address making it possible to connect your physical
 machine and VM through network services like SSH
 ```
