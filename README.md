@@ -34,7 +34,7 @@ as root. It can also be used to run commands as other users in the system
 
 `su -`: change your login to a root user
 
-`apt-get update -y`: command that updates the apt a package manager for debian systems
+`apt-get update -y`: command that updates the apt, a package manager for debian systems
 
 `apt-get upgrade -y`: command that upgrades every package already present
 
@@ -46,7 +46,7 @@ as root. It can also be used to run commands as other users in the system
 
 `visudo`: opens the sudoers config files
 
-now lastly go to the end of the file at the #User Privilege section add `username  ALL=(ALL) ALL`
+now lastly go to the end of the file at the #User Privilege section and add `username  ALL=(ALL) ALL`
 
 after all this go ahead and reboot your machine with `reboot`
 
@@ -61,16 +61,6 @@ ___
 ### How to create a group
 
 `sudo groupadd group_name`: Create a group with the group name given 
-
-`getent group`: To check the groups
-
-___
-
-### How to edit hostname
-
-`sudo vim /etc/hostname`: opens the file with the hostname, you can edit this to change the hostname
-
-`sudo vim /etc/hosts`: opens the file that maps the IP addresses to the hosts, you can edit this to match the name on the `/etc/hostname`
 ___
 
 ### How to create a user and add it to a group
@@ -80,8 +70,6 @@ ___
 `sudo adduser user_name`: creates a new user 
 
 `sudo usermod -aG groupname username`: to add the user given to the group given
-
-`groups`: check to which groups the current user belongs to
 
 if the user doesn't appear in the group that you added him when you run `groups` just restart the machine
 ___
@@ -124,12 +112,6 @@ you'll need to allow ↴
 
 now if you input again the command to check the status of UFW you'll your rules added
 
-##### Remove an UFW port
-
-`sudo ufw status numbered`: to check what ports are open and their index number
-
-`sudo ufw delete port_index_number`: to delete the port of the index number received
-
 ___
 
 ### Connect your VM to your physical machine through ssh
@@ -153,6 +135,8 @@ after that you'll need to change some settings in your virtual machine `/etc/net
 
 once you're in the file you'll need to add and edit some stuff
 
+you can view your ip address with `hostname -I`
+
 `allow-hotplug enp0s3` ⇒ `auto enp0s3`
 
 `iface enp0s3 inet dhcp` ⇒ `iface enp0s3 inet static`
@@ -165,8 +149,6 @@ dns 10.11.254.254
 ```
 
 after this you can open a terminal in your physical machine and type
-
-you can view your ip address with `hostname -I`
 
 `ssh VMusername@VM_ip_address -p 4242`
 
@@ -196,7 +178,7 @@ ucredit: the maximum credit for having uppercase characters in the new password.
 lcredit: the maximum credit for having lowercase characters in the new password.
 maxrepeat: the maximum number of allowed same consecutive characters in the new password.
 reject_username: doesn't allow the user to input his username in the password
-difok: number of characters in the new password that must not be present in new passwords
+difok: number of characters in the old password that must not be present in the new password
 enforce_for_root: the module will return error on failed check even if the user changing the password is root
 ```
 
@@ -320,3 +302,22 @@ on the end of that file write this
 `*/10 * * * * /usr/local/bin/monitoring.sh`: this means that our script will run in 10 minutes intervals
 
 ___
+# Extras
+___
+### How to edit hostname
+
+`sudo vim /etc/hostname`: opens the file with the hostname, you can edit this to change the hostname
+
+`sudo vim /etc/hosts`: opens the file that maps the IP addresses to the hosts, you can edit this to match the name on the `/etc/hostname`
+
+### Check the existing groups
+
+`getent group`: Used to check the groups that exist
+
+`groups user_name`: Used to check to which groups the current user belongs to
+
+##### Remove an UFW port
+
+`sudo ufw status numbered`: to check what ports are open and their index number
+
+`sudo ufw delete port_index_number`: to delete the port of the index number received
