@@ -286,7 +286,7 @@ wall "	#Architecture: $arc
 	#Network: IP $ip ($mac)
 	#Sudo: $cmds cmd"
 ```
-
+`sudo chmod 744 monitoring.sh`: another user can't change it :)
 after saving your script you need to open your sudoers config file with `sudo visudo` and add this line
 
 `your_username        ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh`: this will allow monitoring.sh to be ran when our session starts
