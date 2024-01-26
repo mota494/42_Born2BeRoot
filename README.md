@@ -1,14 +1,15 @@
 <div align="center">
 <h1>Born2BeRoot</h1>
 <b>Born2BeRoot is one of the projects unlockable by the student after completing libft and it was my fourth 42 project</b>
-
-___
-
+<br></br>
+	
 ![Static Badge](https://img.shields.io/badge/Score-%3100%2F100-green?style=for-the-badge&logo=42&labelColor=%23183A61&color=%23ffffff)
 ![Static Badge](https://img.shields.io/badge/Debian-green?style=for-the-badge&logo=Debian&labelColor=%23A81D33&color=ffffff)
 ![Static Badge](https://img.shields.io/badge/Virtual%20Box-green?style=for-the-badge&logo=VirtualBox&labelColor=%23183A61&color=%23ffffff)
 
 [![Static Badge](https://img.shields.io/badge/Music%20Suggestion-Click%20Me?style=for-the-badge&logo=YouTube&logoColor=%23000000&labelColor=%23FFFFFF&color=%23FF0000)](https://www.youtube.com/watch?v=ASHG26YDsOs&pp=ygUMc2VtIHBhbGF2cmFz)
+
+___
 
 ### OS
 
