@@ -8,6 +8,8 @@ ___
 ![Static Badge](https://img.shields.io/badge/Debian-green?style=for-the-badge&logo=Debian&labelColor=%23A81D33&color=ffffff)
 ![Static Badge](https://img.shields.io/badge/Virtual%20Box-green?style=for-the-badge&logo=VirtualBox&labelColor=%23183A61&color=%23ffffff)
 
+[![Static Badge](https://img.shields.io/badge/Music%20Suggestion-Click%20Me?style=for-the-badge&logo=YouTube&logoColor=%23000000&labelColor=%23FFFFFF&color=%23FF0000)](https://www.youtube.com/watch?v=ASHG26YDsOs&pp=ygUMc2VtIHBhbGF2cmFz)
+
 ### OS
 
 In this project you're allowed to choose between 2 OS, debian or rocky.
