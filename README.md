@@ -185,7 +185,7 @@ difok: number of characters in the old password that must not be present in the 
 enforce_for_root: the module will return error on failed check even if the user changing the password is root
 ```
 
-after this you can go ahead and save the documment
+after this you can go ahead and save the document
 
 `sudo vim /etc/login.defs`: opens up the config file for the shadow password suite
 
@@ -206,9 +206,9 @@ will not have this policies estabilished so you need to run a couple of commands
 
 `sudo chage -l user`: to check the password policy for the user given
 
-`sudo chage -M 30 user`: to set the expiricy date for 30 days
+`sudo chage -M 30 user`: to set the expiration date for 30 days
 
-`sudo chage -m 2 user`: to set the minimum ammount of time untill the user can change a password again
+`sudo chage -m 2 user`: to set the minimum amount of time untill the user can change a password again
 
 
 ### Create a sudo log file
