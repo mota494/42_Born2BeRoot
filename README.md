@@ -88,7 +88,7 @@ to other computers through a safe and encrypted data communications using the SS
 
 `sudo vim /etc/ssh/sshd_config`: opens the config file for the ssh server, here you have to change the line that says `#Port 22` ⇒ `Port 4242`
 
-`sudo vim /etc/ssh/ssh_config`: opens the config gile for the ssh client, here you have to change the line that says `#Port 22` ⇒ `Port 4242`
+`sudo vim /etc/ssh/ssh_config`: opens the config file for the ssh client, here you have to change the line that says `#Port 22` ⇒ `Port 4242`
 
 `sudo service ssh restart`: restart the ssh service and apply the changes made
 
@@ -130,7 +130,7 @@ machine by doing that the VM needs to be assigned an IP address making it possib
 machine and VM through network services like SSH
 ```
 
-first go to your Virtual Box select the current VM and go to settings ⇒ network ⇒ change the `Attached to` from `NAT` to `bridge adpater`
+first go to your Virtual Box select the current VM and go to settings ⇒ network ⇒ change the `Attached to` from `NAT` to `bridge adapter`
 
 after that you'll need to change some settings in your virtual machine `/etc/network/interfaces`
 
@@ -191,16 +191,16 @@ after this you can go ahead and save the document
 
 <b>in this file you'll need to edit a couple of lines</b>
 
-`PASS_MAX_DAYS 99999` ⇒ `PASS_MAX_DAYS 30`: changes the expire date of a password
+`PASS_MAX_DAYS 99999` ⇒ `PASS_MAX_DAYS 30`: changes the expiry date of a password
 
-`PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum ammount of time until the user can change a password again
+`PASS_MIN_DAYS 0` ⇒ `PASS_MIN_DAYS 2`: changes the minimum amount of time until the user can change a password again
 
 now save the file and leave vim and type `sudo reboot` to apply the changes
 
 ### Update main user password policy
 
 ```
-All the users that we create after this steps will have this rules implemented but the user that we created at the beggining
+All the users that we create after these steps will have these rules implemented but the user that we created at the beggining
 will not have this policies estabilished so you need to run a couple of commands to update that
 ```
 
@@ -208,7 +208,7 @@ will not have this policies estabilished so you need to run a couple of commands
 
 `sudo chage -M 30 user`: to set the expiration date for 30 days
 
-`sudo chage -m 2 user`: to set the minimum amount of time untill the user can change a password again
+`sudo chage -m 2 user`: to set the minimum amount of time until the user can change a password again
 
 
 ### Create a sudo log file
